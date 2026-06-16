@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# R session files
+.Rhistory
+.RData
+.Rapp.history
+.Rproj.user/
+*.Rproj
+
+# editor / OS junk
+*~
+*.swp
+
+# SLURM job logs
+slurm_outputs/
+*.out
+*.err
+
+# pipeline outputs (users build their own)
+pgsc_output/
+pgsc_out_scratch/
