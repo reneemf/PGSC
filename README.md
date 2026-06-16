@@ -4,7 +4,7 @@ SLURM/PLINK2 pipeline for context-specific polygenic scoring (PGSC) in UK Bioban
 
 📄 **Manuscript:** [TITLE](MANUSCRIPT_URL) 
 
-The companion [Figures_repo](../Figures_repo) reproduces the manuscript figures and contains the simulations.
+The companion [PGSC_Figures repo](https://github.com/reneemf/PGSC_figures) reproduces the manuscript figures and contains the simulations.
 
 Three methods are built: **PGS** (additive baseline), **ampPGS** (genome-wide amplification), and **PGSC** (locus-specific GxC), across three contexts (sex, age, statins) and four populations (White British train/test + European, African, Asian validation).
 
