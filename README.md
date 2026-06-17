@@ -4,7 +4,7 @@ SLURM/PLINK2 pipeline for context-specific polygenic scoring (PGSC) in UK Bioban
 
 📄 **Manuscript:** [TITLE](MANUSCRIPT_URL) 
 
-The companion [PGSC_Figures repo](https://github.com/reneemf/PGSC_figures) reproduces the manuscript figures and contains the simulations.
+The companion [PGSC figures repo](https://github.com/reneemf/PGSC_figures) reproduces the manuscript figures and contains the simulations.
 
 Three methods are built: **PGS** (additive baseline), **ampPGS** (genome-wide amplification), and **PGSC** (locus-specific GxC), across three contexts (sex, age, statins) and four populations (White British train/test + European, African, Asian validation).
 
@@ -18,17 +18,11 @@ Three methods are built: **PGS** (additive baseline), **ampPGS** (genome-wide am
 
 ## Input data
 
-UK Biobank access is application-only, so this repo ships **code only**. Supply your own approved-application data: per-chromosome imputed genotypes in PLINK2 PGEN format (`v3/ukb_imp_chr{chr}_v3`), one `.pheno` file per trait, a PC + sex/age covariate table, and the statin-use phenotype. Expected file names and columns are documented in the header comments of each script.
+UK Biobank access is access-protected, so this repo ships code alone. Supply your own data: per-chromosome genotypes, one phenotype file per trait, a 10 PCs + sex/age covariate file, and context files when needed. Expected file names and columns are documented in the header comments of each script.
 
 ## Setup
 
-Every script sources `source_file.sh` (bash) or `source_file.R` (R), which resolve the pipeline root from `PGSC_HOME`:
-
-```bash
-export PGSC_HOME="/path/to/your/PGSC/"
-```
-
-Then edit the paths at the top of `source_file.sh` / `source_file.R` (`UKB_SHARE`, `SCRATCH`, `LOCAL_PLINK2`) and the `#SBATCH -o/-e` log paths in each script.
+Every script sources `source_file.sh` or `source_file.R` - edit the paths at the top of each file, and the `#SBATCH -o/-e` log paths in each script.
 
 ## Run
 

@@ -1,7 +1,7 @@
 # Edit these paths for your environment (or export PGSC_HOME in your shell).
-UKB_SHARE <- "/gpfs/data/ukb-share/"          # shared UKB data root
+UKB_SHARE <- "/path/to/UKB/dir/"          # shared UKB data root
 SCRATCH   <- "/scratch/<username>/"           # your scratch space
-PGSC_HOME <- Sys.getenv("PGSC_HOME", unset = paste0(UKB_SHARE,"dahl/<user>/PGSC/"))
+PGSC_HOME <- Sys.getenv("PGSC_HOME", unset = paste0(UKB_SHARE,"analysis_dir/PGSC/"))
 
 # Derived paths, no need to edit.
 PHENOS <- paste0(UKB_SHARE,"extracted_phenotypes/")
