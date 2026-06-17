@@ -14,11 +14,10 @@ Three methods are built: **PGS** (additive baseline), **ampPGS** (genome-wide am
 
 - **PLINK2** v2.0 — genotype processing, GWAS, scoring
 - **R ≥ 4.3** with `dplyr`, `ggplot2`
-- **SLURM**, **GCC 12.1+**, **openssl** (seeded split)
 
 ## Input data
 
-UK Biobank access is access-protected, so this repo ships code alone. Supply your own data: per-chromosome genotypes, one phenotype file per trait, a 10 PCs + sex/age covariate file, and context files when needed. Expected file names and columns are documented in the header comments of each script.
+Data requirements: per-chromosome UKB genotypes, one phenotype file per trait, a 10 PCs + sex/age covariate file, and context files as needed. Expected file names and columns are documented in the header comments of each script.
 
 ## Setup
 
