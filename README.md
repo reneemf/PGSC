@@ -17,7 +17,7 @@ Three methods are built: **PGS** (additive baseline), **ampPGS** (genome-wide am
 
 ## Input data
 
-Data requirements: per-chromosome UKB genotypes, one phenotype file per trait, a 10 PCs + sex/age covariate file, and context files as needed. Expected file names and columns are documented in the header comments of each script.
+Data requirements: per-chromosome UKB genotypes, one phenotype file per trait, a 10 PCs + sex/age covariate file, and context files as needed (pipeline constructed for use in a slurm system - UKB has since transitioned to the RAP cloud system). Expected file names and columns are documented in the header comments of each script. 
 
 ## Setup
 
