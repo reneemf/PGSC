@@ -9,7 +9,7 @@ pheno_table <- read.table(paste0(phenotype,".pheno"), header=TRUE)
 
 dir.create("valid_r2/", showWarnings = FALSE)
 out_file <- paste0("valid_r2/",phenotype,"_",context,"_R2.txt")
-if(file.exists(out_file)) return()
+if(file.exists(out_file)) quit(save = "no")
   
 ### Build Phenotype & covariate table
 # covar file should contain sex, age, PCs 1-10, and the context
@@ -80,8 +80,8 @@ pgsc.result <- rbind(pgsc.result,data.frame(Threshold=PGSC_thresh,R2=pgsc.R2$r2,
 # Compare PGSC to ampPGS 
 pgsc.R2_v_amp <- r2_diff_boot(x0=ampPGS,x1=PGSC,y=y,X=X,vali=TRUE)
 pgsc.result <- rbind(pgsc.result,data.frame(Threshold=PGSC_thresh,R2=pgsc.R2_v_amp$r2,
-                                            r2_delta=pgsc.R2_v_amp$delta,w0=pssc.R2_v_amp$pgsC_w0,
-                                            w1=pgsc.R2_v_amp$pgsC_w1,sd=pssc.R2_v_amp$delta_sd,
+                                            r2_delta=pgsc.R2_v_amp$delta,w0=pgsc.R2_v_amp$pgsC_w0,
+                                            w1=pgsc.R2_v_amp$pgsC_w1,sd=pgsc.R2_v_amp$delta_sd,
                                             CI_25=pgsc.R2_v_amp$delta_25,
                                             CI_75=pgsc.R2_v_amp$delta_75,
                                             pval=pgsc.R2_v_amp$delta_pval,type="PGSC_v_amp"))
