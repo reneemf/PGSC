@@ -2,7 +2,7 @@
 
 SLURM/PLINK2 pipeline for context-specific polygenic scoring (PGSC) in UK Biobank: additive and GxC interaction GWAS, PGS scoring, and bootstrapped R² evaluation across ancestries.
 
-📄 **Manuscript:** [TITLE](MANUSCRIPT_URL) 
+📄 **Manuscript:** [Locus-specific gene-context interactions improve polygenic prediction](https://doi.org/10.64898/2026.08.26.746823) 
 
 The companion [PGSC figures repo](https://github.com/reneemf/PGSC_figures) reproduces the manuscript figures and contains the simulations.
 

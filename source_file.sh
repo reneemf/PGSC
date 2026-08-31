@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Edit these paths for your environment (or export PGSC_HOME in your shell).
-UKB_SHARE="/gpfs/data/ukb-share/"                        # shared UKB data root
+UKB_SHARE="/path/to/UKB/dir/"                            # shared UKB data root
 SCRATCH="/scratch/<username>/"                            # your scratch space
 PGSC_HOME="${PGSC_HOME:-${UKB_SHARE}dahl/<user>/PGSC/}"   # pipeline working directory
 LOCAL_PLINK2="/path/to/plink2"                            # PLINK2 v2.00a6LM AVX2 Intel executable
