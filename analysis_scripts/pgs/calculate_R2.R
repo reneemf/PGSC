@@ -2,6 +2,9 @@
 source("bootstrap_prs.R")
 library("dplyr")
 
+# .sscore column names (plink2 output is read with no header row)
+PGS_COLS <- c("FID","IID","ALLELE_CT","ALLELE_DOSAGE_SUM","SCORE1_AVG","SCORE1_SUM")
+
 phenotype <- commandArgs(trailingOnly=T)[1]
 context <- "sex"
 
@@ -22,7 +25,7 @@ rm(covars)
 tuning_vals <- read.table(paste0("rhos/processed_",phenotype,"_whitebrit_sex_PGS.txt"),header=TRUE)
 PGS_thresh <- format(tuning_vals[1,1],scientific=F) # should import the pgs threshold
 PGS_file <- paste0("valid_pgs/",phenotype,"_pgs.",PGS_thresh,".sscore") # import your local pgs
-PGS_IDs <- read.table(PGS_file)[,1:2]
+PGS_IDs <- read.table(PGS_file, col.names=PGS_COLS)[,1:2]
 
 covs <- covs_table[covs_table$FID %in% PGS_IDs$FID, ] # only keep the people in the pgs
 pheno <- pheno_table[pheno_table$FID %in% PGS_IDs$FID, ] # only keep the people in the pgs
@@ -36,7 +39,7 @@ Z <- pheno_cov[,context_col]
 
 ### Step 1: Standard PGS
 pgs.result <- NULL	
-pgs_table <- read.table(PGS_file)[,c(1,6)]
+pgs_table <- read.table(PGS_file, col.names=PGS_COLS)[,c(1,6)]
 best_pgs <- merge(pheno_cov,pgs_table,by="FID")$SCORE1_SUM
 pgs.R2 <- r2_boot(x=best_pgs,y=y,X=X)
 pgs_pv <- summary(lm(y ~ 1 + best_pgs + as.matrix(X)))$coef['best_pgs',4]
@@ -59,7 +62,7 @@ pgsc.result <- NULL
   
 PGSC_thresh <- format(tuning_vals[4,1],scientific=F) # should import the PGSC threshold
 PGxCS_file <- paste0("valid_pgxcs/",phenotype,"_pgxcs.",PGSC_thresh,".sscore")
-PGxCS_table <- read.table(PGxCS_file)[,c(1,6)] 
+PGxCS_table <- read.table(PGxCS_file, col.names=PGS_COLS)[,c(1,6)] 
 PGxCS <- merge(pheno_cov,PGxCS_table,by="FID")$SCORE1_SUM
 rm(PGxCS_table)
 
